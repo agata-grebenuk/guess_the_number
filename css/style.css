@@ -17,7 +17,7 @@
     --color-active: black;
     --color-msg: black;
 
-    --bg-color-main: rgba(255,255,255, 0.1);
+    --bg-color-main: rgb(68 102 83 / 78%);
     --bg-color-active: rgba(255,255,255, 0.7);
     --bg-color-msg-bot: white;
     --bg-color-msg-player: rgb(144, 216, 180);
@@ -42,7 +42,7 @@
   .app-container {
     width: min(100% - 40px, 600px);
     margin-inline: auto;
-    margin-top: 50px;
+    margin-top: 170px;
     padding: 20px;
     border: 1px solid var(--brd-color);
     border-radius: var(--brd-radius1);
@@ -54,7 +54,7 @@
     display: grid;
     align-content: end;
     width: 100%;
-    height: 600px;
+    height: 400px;
     overflow: auto;
     padding: 20px;
     border: 1px solid var(--brd-color);
@@ -70,7 +70,7 @@
   }
 
   .app-controls__input-number-field {
-    font-size: var(--fs-big);
+    font-size: var(--fs-main);
     color: var(--color-main);
     padding: 0.5em;
     display: block;
@@ -107,7 +107,7 @@
 
   .bot {
     background-color: var(--bg-color-msg-bot);
-    border-radius: var(--brd-radius1) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
+    border-radius: var(--brd-radius2) var(--brd-radius2) var(--brd-radius2) var(--brd-radius2);
     justify-self: start;
   }
 

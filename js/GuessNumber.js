@@ -4,8 +4,6 @@ export default class GuessNumber {
     this.guessedNumber = 0; // переменная куда добавляется число которое мы вводим
     this.userMsgChoices = ["Хорошо,это оно ",
                     "Может быть, твой номер "];
-    this.botMsgChoices = ["Нет, мой номер ",
-                          "Ты шутишь, что ли? Мой номер "];
 
     this.screen = this.app.querySelector(".app__screen");
     this.sendBtn = this.app.querySelector(".app-controls__button-send");  // эти переменные собирают стиль из функций и передают в классы
@@ -17,10 +15,8 @@ export default class GuessNumber {
   }
 
   init() {     //Вызов начала игры
-    this.setGuessedNumber(this.getRandomInt(10)); // переменная которую вписывает пользователь закидывается в рандомайзер
-    this.say("Привет", "bot");
-    this.say("Угадай число от 1 до 10", "bot");
-    this.say("Сможешь угадать?", "bot");
+    this.getRandomInt(); // переменная которую вписывает пользователь закидывается в рандомайзер
+    this.say("Привет. Сыграем в игру 'Угадай число'? Я загадаю число от 0 до 10, а ты должен его угадать!", "bot");
   }
 
   setGuessedNumber(num) { // функция для сохранения переменной назначеной пользователем
@@ -31,13 +27,14 @@ export default class GuessNumber {
     return this.guessedNumber;
   }
 
-  getRandomInt(max) {
-    return Math.floor(Math.random() * max); //генерирует случайное целое число max = 10
+  getRandomInt() {
+    this.guessedNumber = 1 + Math.floor(Math.random() * 10); //генерирует случайное целое число от 0 до 10
+    console.log(this.guessedNumber)
   }
 
-  say(message, cls) { // создаем функцию которая  передает в HTML  и добавляет свойства сss
+  say(message, cls) { // функцию которая  передает в HTML  и добавляет свойства сss
     const msgBubble = this.createBubble(message, cls); //вызов функции которая передает в HTML начало игры и добавляет свойства сss
-    this.screen.append(msgBubble)
+    this.screen.append(msgBubble) // append - добавлять
   }
 
   randomChoice(choices) {
@@ -51,22 +48,25 @@ export default class GuessNumber {
     this.say(this.randomChoice(this.userMsgChoices)+checkingNum+'?', "player");
 
     if (checkingNum < parseInt(this.getGuessedNumber())) {
-      this.say(this.randomChoice(this.botMsgChoices) + " больше", "bot");
+      this.say(" Нет, мой номер больше!", "bot");
     }
     else if (checkingNum > parseInt(this.getGuessedNumber())) {
-      this.say(this.randomChoice(this.botMsgChoices) + " меньше", "bot");
+      this.say("Нет, мой номер меньше!", "bot");
     }
     else {
       this.say("Ты угадал 😝", "bot");
     }
 
+    function greet () {
+      alert ('Ты что тормозишь!!' + this.createBubble(message, cls));
+      }
+      setTimeout (greet, 2000, loggedInUser);
   }
-
   createBubble(message, cls) {
-    const bubble = document.createElement("div"); // чтобы начало игры передавалась в div
-    bubble.classList.add("bubble"); // передает с css свойства
-    bubble.classList.add(cls) // передаем свойства в переменную cls
-    bubble.innerHTML = message; //чтобы изменения дошли до HTML
+    const bubble = document.createElement("div"); // создает элемент div
+    bubble.classList.add("bubble"); // добавляется класс bubble
+    bubble.classList.add(cls) // добавляет класс bot который находится в say
+    bubble.innerHTML = message;// добавляет слова которые вписанны в js
     return bubble;
   }
 

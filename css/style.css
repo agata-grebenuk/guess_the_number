@@ -25,7 +25,7 @@
     --brd-color: rgba(255,255,255,0.3);
 
     --brd-radius1: 20px;
-    --brd-radius2: 50px;
+    --brd-radius2: 30px;
   }
 
   input::-webkit-outer-spin-button,
@@ -43,11 +43,11 @@
     width: min(100% - 40px, 600px);
     margin-inline: auto;
     margin-top: 170px;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid var(--brd-color);
     border-radius: var(--brd-radius1);
     background-color: var(--bg-color-main);
-    backdrop-filter: blur(200px) brightness(50%);
+
   }
 
   .app__screen {
@@ -64,7 +64,7 @@
   .app-controls {
     display: grid;
     grid-template-columns: 10fr 2fr;
-    gap: 10px;
+    gap: 6px;
     padding: 20px;
     padding-inline: 0;
   }
@@ -99,8 +99,8 @@
     margin-top: 10px;
     width: fit-content;
     max-width: 80%;
-    padding: 0.3em;
-    padding-inline: 1em;
+    padding: 0.5em;
+    padding-inline: 0.5em;
     font-size: var(--fs-main);
   }
 
